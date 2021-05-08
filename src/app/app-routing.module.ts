@@ -22,7 +22,15 @@ const routes: Routes = [
   },
   { path: 'contacts', loadChildren: './contacts/contact-list/contact-list.module#ContactListPageModule' },
   { path: 'contacts/new', loadChildren: './contacts/contact-form/contact-form.module#ContactFormPageModule' },
-  { path: 'contacts/edit/:id', loadChildren: './contacts/contact-form/contact-form.module#ContactFormPageModule' }
+  { path: 'contacts/edit/:id', loadChildren: './contacts/contact-form/contact-form.module#ContactFormPageModule' },
+  {
+    path: 'consulta-form',
+    loadChildren: () => import('./consultas/consulta-form/consulta-form.module').then( m => m.ConsultaFormPageModule)
+  },
+  {
+    path: 'consulta-list',
+    loadChildren: () => import('./consultas/consulta-list/consulta-list.module').then( m => m.ConsultaListPageModule)
+  }
 ];
 
 @NgModule({
