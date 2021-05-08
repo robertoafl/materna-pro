@@ -1,5 +1,7 @@
 {
   "name": "materna-pro",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
