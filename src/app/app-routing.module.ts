@@ -30,6 +30,14 @@ const routes: Routes = [
   {
     path: 'consulta-list',
     loadChildren: () => import('./consultas/consulta-list/consulta-list.module').then( m => m.ConsultaListPageModule)
+  },
+  {
+    path: 'tarefa-form',
+    loadChildren: () => import('./tarefas/tarefa-form/tarefa-form.module').then( m => m.TarefaFormPageModule)
+  },
+  {
+    path: 'tarefa-list',
+    loadChildren: () => import('./tarefas/tarefa-list/tarefa-list.module').then( m => m.TarefaListPageModule)
   }
 ];
 
