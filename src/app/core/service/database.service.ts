@@ -30,6 +30,8 @@ export class DatabaseService {
   getCreateTable() {
     const sqls = [];
     sqls.push('CREATE TABLE IF NOT EXISTS contacts (id integer primary key AUTOINCREMENT, name varchar(100));');
+    sqls.push('CREATE TABLE IF NOT EXISTS consultas (id integer primary key AUTOINCREMENT, name varchar(100));');
+    sqls.push('CREATE TABLE IF NOT EXISTS tarefas (id integer primary key AUTOINCREMENT, name varchar(100));');
     return sqls.join('\n');
   }
 
@@ -42,6 +44,8 @@ export class DatabaseService {
   getDropTable() {
     const sqls = [];
     sqls.push('DROP TABLE IF EXISTS contacts;');
+    sqls.push('DROP TABLE IF EXISTS consultas;');
+    sqls.push('DROP TABLE IF EXISTS tarefas;');
     return sqls.join('\n');
   }
 
