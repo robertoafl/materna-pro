@@ -1,20 +1,39 @@
-<ion-header>
-  <ion-toolbar color="primary">
+<ion-header [translucent]="true">
+  <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button color="primary"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ title }}</ion-title>
+    <!-- <ion-title>{{ title }}</ion-title> -->
+    <ion-title color="primary">Dados pessoais</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <form (ngSubmit)="onSubmit()">
     <ion-item>
-      <ion-label position="stacked">Nome</ion-label>
-      <ion-input autocapitalize="on" [(ngModel)]="contact.name" name="name"></ion-input>
+      <ion-label position="stacked" color="dark">Nome</ion-label>
+      <ion-input autocapitalize="on" [(ngModel)]="contact.name" name="app_form_cad_name"></ion-input>
+      <ion-label position="stacked" color="dark">Nome Preferido</ion-label>
+      <ion-input autocapitalize="on" [(ngModel)]="contact.nomePreferido" name="app_form_cad_nomePreferido"></ion-input>
+      <ion-label position="stacked" color="dark">CPF</ion-label>
+      <ion-input autocapitalize="on" [(ngModel)]="contact.cpf" name="app_form_cad_cpf"></ion-input>
+      <ion-label position="stacked" color="dark">Data de Nascimento</ion-label>
+      <ion-input autocapitalize="on" [(ngModel)]="contact.dataNascimento" name="app_form_cad_dataNascimento"></ion-input>
+      <ion-label position="stacked" color="dark">Telefone</ion-label>
+      <ion-input autocapitalize="on" [(ngModel)]="contact.telefone" name="app_form_cad_telefone"></ion-input>
+      <ion-label position="stacked" color="dark">Email</ion-label>
+      <ion-input autocapitalize="on" [(ngModel)]="contact.email" name="app_form_cad_email"></ion-input>
+      <ion-label position="stacked" color="dark">Está gravida?</ion-label>
+      <ion-input autocapitalize="on" [(ngModel)]="contact.estahGravida" name="app_form_cad_estahGravida"></ion-input>
+      <ion-label position="stacked" color="dark">Data da última menstruacao</ion-label>
+      <ion-input autocapitalize="on" [(ngModel)]="contact.dataUltimaMenstruacao" name="app_form_cad_dataUltimaMenstruacao"></ion-input>
+      <ion-label position="stacked" color="dark">Telefone de emergência</ion-label>
+      <ion-input autocapitalize="on" [(ngModel)]="contact.telefoneEmergencia" name="app_form_cad_telefoneEmergencia"></ion-input>
+      <ion-label position="stacked" color="dark">Li e concordo com os termos de uso</ion-label>
+      <ion-input autocapitalize="on" [(ngModel)]="contact.aceite" name="app_form_cad_aceite"></ion-input>
     </ion-item>
     <div class="ion-margin-vertical">
-      <ion-button type="submit" color="secondary" expand="block">Salvar</ion-button>
+      <ion-button type="submit" color="primary" expand="block">Salvar</ion-button>
     </div>
   </form>
 </ion-content>

@@ -18,15 +18,15 @@ export class ContactService {
   }
 
   private insert(contact: Contact) {
-    const sql = 'insert into contacts (name) values (?)';
-    const data = [contact.name];
+    const sql = 'insert into contacts (name, nomePreferido, cpf, dataNascimento, telefone, email, estahGravida, dataUltimaMenstruacao, telefoneEmergencia, aceite) values (?,?,?,?,?,?,?,?,?,?)';
+    const data = [contact.name, contact.nomePreferido, contact.cpf, contact.dataNascimento, contact.telefone, contact.email, contact.estahGravida, contact.dataUltimaMenstruacao, contact.telefoneEmergencia, contact.aceite];
 
     return this.db.executeSQL(sql, data);
   }
 
   private update(contact: Contact) {
-    const sql = 'update contacts set name = ? where id = ?';
-    const data = [contact.name, contact.id];
+    const sql = 'update contacts set name = ?, nomePreferido = ?, cpf = ?, dataNascimento = ?, telefone = ?, email = ?, estahGravida = ?, dataUltimaMenstruacao = ?, telefoneEmergencia = ?, aceite = ? where id = ?';
+    const data = [contact.name, contact.nomePreferido, contact.cpf, contact.dataNascimento, contact.telefone, contact.email, contact.estahGravida, contact.dataUltimaMenstruacao, contact.telefoneEmergencia, contact.aceite, contact.id];
 
     return this.db.executeSQL(sql, data);
   }
@@ -47,7 +47,16 @@ export class ContactService {
     if (rows && rows.length > 0) {
       const item = rows.item(0);
       contact.id = item.id;
-      contact.name = item.name;      
+      contact.name = item.name;
+      contact.nomePreferido = item.nomePreferido;
+      contact.cpf = item.cpf;
+      contact.dataNascimento = item.dataNascimento;
+      contact.telefone = item.telefone;
+      contact.email = item.email;
+      contact.estahGravida = item.estahGravida;
+      contact.dataUltimaMenstruacao = item.dataUltimaMenstruacao;
+      contact.telefoneEmergencia = item.telefoneEmergencia;
+      contact.aceite = item.aceite;
     }
     return contact;
   }
@@ -75,6 +84,15 @@ export class ContactService {
       const contact = new Contact();
       contact.id = item.id;
       contact.name = item.name;
+      contact.nomePreferido = item.nomePreferido;
+      contact.cpf = item.cpf;
+      contact.dataNascimento = item.dataNascimento;
+      contact.telefone = item.telefone;
+      contact.email = item.email;
+      contact.estahGravida = item.estahGravida;
+      contact.dataUltimaMenstruacao = item.dataUltimaMenstruacao;
+      contact.telefoneEmergencia = item.telefoneEmergencia;
+      contact.aceite = item.aceite;
       contacts.push(contact);
     }
 

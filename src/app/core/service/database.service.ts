@@ -14,7 +14,7 @@ export class DatabaseService {
   async openDatabase() {
     try {
       this.db = await this.sqlite.create({ name: this.databaseName, location: 'default' });
-      //await this.dropDatabase();
+      await this.dropDatabase();
       await this.createDatabase();
     } catch (error) {
       console.error('Ocorreu um erro ao criar o banco de dados', error);
@@ -29,8 +29,8 @@ export class DatabaseService {
 
   getCreateTable() {
     const sqls = [];
-    sqls.push('CREATE TABLE IF NOT EXISTS contacts (id integer primary key AUTOINCREMENT, name varchar(100));');
-    sqls.push('CREATE TABLE IF NOT EXISTS consultas (id integer primary key AUTOINCREMENT, name varchar(100));');
+    sqls.push('CREATE TABLE IF NOT EXISTS contacts (id integer primary key AUTOINCREMENT, name varchar(100), nomePreferido varchar(100), cpf varchar(100), dataNascimento varchar(100), telefone varchar(100), email varchar(100), estahGravida varchar(100), dataUltimaMenstruacao varchar(100), telefoneEmergencia varchar(100), aceite varchar(100));');
+    sqls.push('CREATE TABLE IF NOT EXISTS consultas (id integer primary key AUTOINCREMENT, name varchar(100), dataConsulta varchar(100), avaliacao varchar(100));');
     sqls.push('CREATE TABLE IF NOT EXISTS tarefas (id integer primary key AUTOINCREMENT, name varchar(100));');
     return sqls.join('\n');
   }

@@ -53,14 +53,14 @@ export class TarefaService {
   }
 
   async getAll() {
-    const sql = 'select * from tarefas';
+    const sql = 'select * from tarefas order by name';
     const result = await this.db.executeSQL(sql);
     const tarefas = this.fillTarefas(result.rows);
     return tarefas;
   }
 
   async filter(text: string) {
-    const sql = 'select * from tarefas where name like ?';
+    const sql = 'select * from tarefas where name like ? order by name';
     const data = [`%${text}%`];
     const result = await this.db.executeSQL(sql, data);
     const tarefas = this.fillTarefas(result.rows);

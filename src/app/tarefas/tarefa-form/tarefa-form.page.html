@@ -1,20 +1,21 @@
-<ion-header>
-  <ion-toolbar color="primary">
+<ion-header [translucent]="true">
+  <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button color="primary"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ title }}</ion-title>
+    <!-- <ion-title>{{ title }}</ion-title> -->
+    <ion-title color="primary">Novo sintoma</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <form (ngSubmit)="onSubmit()">
     <ion-item>
-      <ion-label position="stacked">Nome</ion-label>
-      <ion-input autocapitalize="on" [(ngModel)]="tarefa.name" name="name"></ion-input>
+      <ion-label position="stacked" color="dark">Sintoma</ion-label>
+      <ion-textarea autocapitalize="on" [(ngModel)]="tarefa.name" name="name"></ion-textarea>
     </ion-item>
     <div class="ion-margin-vertical">
-      <ion-button type="submit" color="secondary" expand="block">Salvar</ion-button>
+      <ion-button type="submit" color="primary" expand="block">Salvar</ion-button>
     </div>
   </form>
 </ion-content>

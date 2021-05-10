@@ -18,15 +18,15 @@ export class ConsultaService {
   }
 
   private insert(consulta: Consulta) {
-    const sql = 'insert into consultas (name) values (?)';
-    const data = [consulta.name];
+    const sql = 'insert into consultas (name, dataConsulta, avaliacao) values (?,?,?)';
+    const data = [consulta.name, consulta.dataConsulta, consulta.avaliacao];
 
     return this.db.executeSQL(sql, data);
   }
 
   private update(consulta: Consulta) {
-    const sql = 'update consultas set name = ? where id = ?';
-    const data = [consulta.name, consulta.id];
+    const sql = 'update consultas set name = ?, dataConsulta = ?, avaliacao = ? where id = ?';
+    const data = [consulta.name, consulta.dataConsulta, consulta.avaliacao, consulta.id];
 
     return this.db.executeSQL(sql, data);
   }
@@ -47,20 +47,22 @@ export class ConsultaService {
     if (rows && rows.length > 0) {
       const item = rows.item(0);
       consulta.id = item.id;
-      consulta.name = item.name;      
+      consulta.name = item.name;
+      consulta.dataConsulta = item.dataConsulta;
+      consulta.avaliacao = item.avaliacao;
     }
     return consulta;
   }
 
   async getAll() {
-    const sql = 'select * from consultas';
+    const sql = 'select * from consultas order by name';
     const result = await this.db.executeSQL(sql);
     const consultas = this.fillConsultas(result.rows);
     return consultas;
   }
 
   async filter(text: string) {
-    const sql = 'select * from consultas where name like ?';
+    const sql = 'select * from consultas where name like ? order by name';
     const data = [`%${text}%`];
     const result = await this.db.executeSQL(sql, data);
     const consultas = this.fillConsultas(result.rows);
@@ -75,6 +77,8 @@ export class ConsultaService {
       const consulta = new Consulta();
       consulta.id = item.id;
       consulta.name = item.name;
+      consulta.dataConsulta = item.dataConsulta;
+      consulta.avaliacao = item.avaliacao;
       consultas.push(consulta);
     }
 

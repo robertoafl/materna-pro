@@ -2,9 +2,9 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button color="primary"></ion-menu-button>
-      <ion-icon name="list-outline" color="primary"></ion-icon>
+      <!-- <ion-icon name="person-outline" color="primary"></ion-icon> -->
     </ion-buttons>
-    <ion-title color="primary">Tarefas</ion-title>
+    <ion-title color="primary">Sintomas</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -18,9 +18,9 @@
         <ion-label>{{tarefa.name}}</ion-label>
       </ion-item>
 
-      <ion-item-options side="start">
+      <ion-item-options side="start" color="primary">
         <ion-item-option [routerLink]="['edit', tarefa.id]">
-          <ion-icon slot="icon-only" name="create" color="secondary"></ion-icon>
+          <ion-icon slot="icon-only" name="create" color="warning"></ion-icon>
         </ion-item-option>
         <ion-item-option (click)="delete(tarefa)">
           <ion-icon slot="icon-only" name="trash" color="danger"></ion-icon>
@@ -30,7 +30,7 @@
   </ion-list>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="secondary" [routerLink]="['new']">
+    <ion-fab-button color="primary" [routerLink]="['new']">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
