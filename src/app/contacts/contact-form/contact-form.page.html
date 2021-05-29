@@ -13,12 +13,11 @@
     <ion-item>
       <ion-label position="stacked" color="dark">Nome</ion-label>
       <ion-input autocapitalize="on" [(ngModel)]="contact.name" name="app_form_cad_name"></ion-input>
-      <ion-label position="stacked" color="dark">Nome Preferido</ion-label>
-      <ion-input autocapitalize="on" [(ngModel)]="contact.nomePreferido" name="app_form_cad_nomePreferido"></ion-input>
       <ion-label position="stacked" color="dark">CPF</ion-label>
       <ion-input autocapitalize="on" [(ngModel)]="contact.cpf" name="app_form_cad_cpf"></ion-input>
       <ion-label position="stacked" color="dark">Data de Nascimento</ion-label>
-      <ion-input autocapitalize="on" [(ngModel)]="contact.dataNascimento" name="app_form_cad_dataNascimento"></ion-input>
+      <ion-input autocapitalize="on" [(ngModel)]="contact.dataNascimento" name="app_form_cad_dataNascimento">
+      </ion-input>
       <ion-label position="stacked" color="dark">Telefone</ion-label>
       <ion-input autocapitalize="on" [(ngModel)]="contact.telefone" name="app_form_cad_telefone"></ion-input>
       <ion-label position="stacked" color="dark">Email</ion-label>
@@ -26,12 +25,29 @@
       <ion-label position="stacked" color="dark">Está gravida?</ion-label>
       <ion-input autocapitalize="on" [(ngModel)]="contact.estahGravida" name="app_form_cad_estahGravida"></ion-input>
       <ion-label position="stacked" color="dark">Data da última menstruacao</ion-label>
-      <ion-input autocapitalize="on" [(ngModel)]="contact.dataUltimaMenstruacao" name="app_form_cad_dataUltimaMenstruacao"></ion-input>
+      <ion-input autocapitalize="on" [(ngModel)]="contact.dataUltimaMenstruacao"
+        name="app_form_cad_dataUltimaMenstruacao"></ion-input>
       <ion-label position="stacked" color="dark">Telefone de emergência</ion-label>
-      <ion-input autocapitalize="on" [(ngModel)]="contact.telefoneEmergencia" name="app_form_cad_telefoneEmergencia"></ion-input>
+      <ion-input autocapitalize="on" [(ngModel)]="contact.telefoneEmergencia" name="app_form_cad_telefoneEmergencia">
+      </ion-input>
       <ion-label position="stacked" color="dark">Li e concordo com os termos de uso</ion-label>
       <ion-input autocapitalize="on" [(ngModel)]="contact.aceite" name="app_form_cad_aceite"></ion-input>
     </ion-item>
+    <ion-list>
+      <ion-item>
+        <ion-label floating>bbbb</ion-label>
+        <ion-select name="model" [(ngModel)]="contact.email">
+          <ion-select-option value="f">Female</ion-select-option>
+          <ion-select-option value="m">Male</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>DDD. MMM DD, YY (custom locale)</ion-label>
+        <ion-datetime value={{pregnancyAverageDate}} min={{pregnancyMinDate}} max={{maxDate}}
+          displayFormat="DDD. DD MMM, YYYY" dayShortNames="Dom, Seg, Ter, Qua, Qui, Sex, Sab"
+          monthShortNames="jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez"></ion-datetime>
+      </ion-item>
+    </ion-list>
     <div class="ion-margin-vertical">
       <ion-button type="submit" color="primary" expand="block">Salvar</ion-button>
     </div>

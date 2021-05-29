@@ -14,6 +14,14 @@ export class ContactFormPage implements OnInit {
   title: string = 'Novo contato';
   contact: Contact;
 
+  maxDate: any = new Date().toISOString();
+
+  birthMinDate: any = new Date(new Date().setFullYear(new Date().getFullYear() - 50)).toISOString();
+  birthAverageDate: any = new Date((new Date(this.birthMinDate).getTime() + new Date(this.maxDate).getTime()) / 2).toISOString();
+
+  pregnancyMinDate: any = new Date(new Date(this.maxDate).getTime() - 23668200000).toISOString(); //Data atual menos 9 meses
+  pregnancyAverageDate: any = new Date((new Date(this.pregnancyMinDate).getTime() + new Date(this.maxDate).getTime()) / 2).toISOString();
+
   constructor(
     private contactService: ContactService,
     private route: ActivatedRoute, //Pegar a rota ativa do angula
