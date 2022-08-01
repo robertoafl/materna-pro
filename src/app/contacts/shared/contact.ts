@@ -8,6 +8,9 @@ export class Contact {
     email: string;
     estahGravida: string;
     dataUltimaMenstruacao: string;
+    terminoPrimeiroTrimestre: Date;
+    terminoSegundoTrimestre: Date;
+    terminoTerceiroTrimestre: Date;
     telefoneEmergencia: string;
     aceite: string;
 }

@@ -18,15 +18,15 @@ export class TarefaService {
   }
 
   private insert(tarefa: Tarefa) {
-    const sql = 'insert into tarefas (name) values (?)';
-    const data = [tarefa.name];
+    const sql = 'insert into tarefas (anotacoes) values (?)';
+    const data = [tarefa.anotacoes];
 
     return this.db.executeSQL(sql, data);
   }
 
   private update(tarefa: Tarefa) {
-    const sql = 'update tarefas set name = ? where id = ?';
-    const data = [tarefa.name, tarefa.id];
+    const sql = 'update tarefas set anotacoes = ? where id = ?';
+    const data = [tarefa.anotacoes, tarefa.id];
 
     return this.db.executeSQL(sql, data);
   }
@@ -47,20 +47,20 @@ export class TarefaService {
     if (rows && rows.length > 0) {
       const item = rows.item(0);
       tarefa.id = item.id;
-      tarefa.name = item.name;      
+      tarefa.anotacoes = item.anotacoes;      
     }
     return tarefa;
   }
 
   async getAll() {
-    const sql = 'select * from tarefas order by name';
+    const sql = 'select * from tarefas order by anotacoes';
     const result = await this.db.executeSQL(sql);
     const tarefas = this.fillTarefas(result.rows);
     return tarefas;
   }
 
   async filter(text: string) {
-    const sql = 'select * from tarefas where name like ? order by name';
+    const sql = 'select * from tarefas where anotacoes like ? order by anotacoes';
     const data = [`%${text}%`];
     const result = await this.db.executeSQL(sql, data);
     const tarefas = this.fillTarefas(result.rows);
@@ -74,7 +74,7 @@ export class TarefaService {
       const item = rows.item(i);
       const tarefa = new Tarefa();
       tarefa.id = item.id;
-      tarefa.name = item.name;
+      tarefa.anotacoes = item.anotacoes;
       tarefas.push(tarefa);
     }
 

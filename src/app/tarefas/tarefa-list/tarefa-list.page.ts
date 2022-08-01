@@ -41,7 +41,7 @@ export class TarefaListPage implements OnInit {
   async delete(tarefa: Tarefa) {
     const alert = await this.alertCtrl.create({
       header: 'Deletar?',
-      message: `Deseja excluir a tarefa: ${tarefa.name}?`,
+      message: `Deseja excluir a tarefa: ${tarefa.anotacoes}?`,
       buttons: [
         {
           text: 'Cancelar',

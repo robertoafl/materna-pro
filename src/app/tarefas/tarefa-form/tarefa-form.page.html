@@ -3,17 +3,67 @@
     <ion-buttons slot="start">
       <ion-back-button color="primary"></ion-back-button>
     </ion-buttons>
-    <!-- <ion-title>{{ title }}</ion-title> -->
-    <ion-title color="primary">Novo sintoma</ion-title>
+    <ion-title color="primary">Perfil da Gestante</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <form (ngSubmit)="onSubmit()">
-    <ion-item>
-      <ion-label position="stacked" color="dark">Sintoma</ion-label>
-      <ion-textarea autocapitalize="on" [(ngModel)]="tarefa.name" name="name"></ion-textarea>
-    </ion-item>
+    <div class="ion-padding-top ion-text-justify">
+      <ion-label color="primary" class="ion-text-wrap">Você está no {{trimestre}}º trimestre de
+        gestação! Este é o início da sua jornada como mãe. Para consulta odontológica é muito importante você lembrar de
+        tudo o que acontece, por isso marque abaixo os itens que concordar.</ion-label>
+    </div>
+    <ion-item-divider class="ion-no-padding"></ion-item-divider>
+    <ion-list>
+      <ion-item>
+        <ion-label color="dark" class="ion-text-wrap">Tenho náuseas ou vômitos constantes</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label color="dark" class="ion-text-wrap">Tenho sangramento nas gengivas</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label color="dark" class="ion-text-wrap">Tenho dor de dente</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label color="dark" class="ion-text-wrap">Uso aparelho ortodôntico mas não faço as manutenções</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label color="dark" class="ion-text-wrap">Realizei a primeira consulta do pré-natal odontológico</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label color="dark" class="ion-text-wrap">Uso com frequência fio dental</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label color="dark" class="ion-text-wrap">Sempre escovo meus dentes após as refeições</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label color="dark" class="ion-text-wrap">Tenho insegurança/medo quando vou ao dentista</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label color="dark" class="ion-text-wrap">Acredito que a minha saúde bucal influencia a saúde do meu bebê
+        </ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label color="dark" class="ion-text-wrap">Acredito na importância do aleitamento materno</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" color="dark">Anotações</ion-label>
+        <ion-textarea autocapitalize="on" [(ngModel)]="tarefa.anotacoes" name="name" rows="3"
+          placeholder="Escreva aqui outros sinais e sintomas neste período e que você não encontrou na lista acima.">
+        </ion-textarea>
+      </ion-item>
+    </ion-list>
     <div class="ion-margin-vertical">
       <ion-button type="submit" color="primary" expand="block">Salvar</ion-button>
     </div>

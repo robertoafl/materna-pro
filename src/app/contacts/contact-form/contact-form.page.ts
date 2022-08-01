@@ -19,7 +19,7 @@ export class ContactFormPage implements OnInit {
   birthMinDate: any = new Date(new Date().setFullYear(new Date().getFullYear() - 50)).toISOString();
   birthAverageDate: any = new Date((new Date(this.birthMinDate).getTime() + new Date(this.maxDate).getTime()) / 2).toISOString();
 
-  pregnancyMinDate: any = new Date(new Date(this.maxDate).getTime() - 23668200000).toISOString(); //Data atual menos 9 meses
+  pregnancyMinDate: any = new Date(new Date(this.maxDate).getTime() - 23652000000).toISOString(); //Data atual menos 9 meses
   pregnancyAverageDate: any = new Date((new Date(this.pregnancyMinDate).getTime() + new Date(this.maxDate).getTime()) / 2).toISOString();
 
   constructor(
@@ -27,14 +27,15 @@ export class ContactFormPage implements OnInit {
     private route: ActivatedRoute, //Pegar a rota ativa do angula
     private toastCtrl: ToastController) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.contact = new Contact();
 
     const idParam = this.route.snapshot.paramMap.get('id');
     if (idParam) {
       this.title = 'Editar contato';
-      this.loadContact(parseInt(idParam));
+      await this.loadContact(parseInt(idParam));
     }
+    console.log(this.contact);
   }
 
   async loadContact(id: number) {
@@ -66,6 +67,12 @@ export class ContactFormPage implements OnInit {
 
       toast.present();
     }
+  }
+
+  atribuiTrimestres() {
+    this.contact.terminoPrimeiroTrimestre = new Date(new Date(this.contact.dataUltimaMenstruacao).getTime() + 7884000000);
+    this.contact.terminoSegundoTrimestre = new Date(new Date(this.contact.dataUltimaMenstruacao).getTime() + 15768000000);
+    this.contact.terminoTerceiroTrimestre = new Date(new Date(this.contact.dataUltimaMenstruacao).getTime() + 23652000000);
   }
 
 }
