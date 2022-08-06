@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
-});
+})
 export class ContactService {
 
   constructor(private db: DatabaseService, public http:HttpClient) { }

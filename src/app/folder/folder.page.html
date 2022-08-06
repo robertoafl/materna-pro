@@ -25,6 +25,11 @@
     </ion-label>
     <br />
     <br />
+
+    <ion-label position="stacked" color="dark">CPF:</ion-label>
+    <ion-input type="text" placeholder="Informe aqui o CPF" [(ngModel)]="cpf_cnpj" (keyup)="cpf_cnpj=format(cpf_cnpj)" maxlength="14" ngModel name="app_folder_contact_cpf"></ion-input>
+    <ion-button color="primary" (click)="login()">IDENTIFIQUE-SE</ion-button>
+
     <ion-button routerLink="/contacts/edit/1" color="primary" size="large" fill="solid">
       <div class="ion-padding">
         <label class="ion-padding" style="white-space: pre-line;">CADASTRO</label>
