@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Contact } from '../shared/contact';
 import { ContactService } from '../shared/contact.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-contact-form',
@@ -25,7 +27,37 @@ export class ContactFormPage implements OnInit {
   constructor(
     private contactService: ContactService,
     private route: ActivatedRoute, //Pegar a rota ativa do angula
-    private toastCtrl: ToastController) { }
+    private toastCtrl: ToastController,
+    public http:HttpClient,
+    public platform:Platform) 
+    {
+      this.platform.ready().then(()=>{
+        //this.SaveContactData();
+      })
+    }
+
+    SaveContactData()
+    {
+      var dataToSend = {
+        nome: "Roberto", 
+        nomePreferido: "Roberto2", 
+        cpf: "05220836765", 
+        dataNascimento: "1891-10-11", 
+        telefone: "333333333", 
+        email: "roberto@eu.com", 
+        estahGravida: "Sim", 
+        dataUltimaMenstruacao: "1651426983", 
+        telefoneEmergencia: "444444444", 
+        aceite: "Sim"
+      };
+      var url = "http://localhost:3300/insertcontacts/";
+      this.http.post(url,{data:JSON.stringify(dataToSend)},{headers:new HttpHeaders(
+        {"content-Type":"application/json"})}).subscribe(
+          (data)=>{
+            alert(data);
+          }
+        )
+    }
 
   async ngOnInit() {
     this.contact = new Contact();

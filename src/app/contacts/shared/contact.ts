@@ -3,7 +3,7 @@ export class Contact {
     name: string;
     nomePreferido: string;
     cpf: string;
-    dataNascimento: Date;
+    dataNascimento: string;
     telefone: string;
     email: string;
     estahGravida: string;

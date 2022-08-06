@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { DatabaseService } from 'src/app/core/service/database.service';
 import { Contact } from './contact';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
-})
+});
 export class ContactService {
 
-  constructor(private db: DatabaseService) { }
+  constructor(private db: DatabaseService, public http:HttpClient) { }
 
   save(contact: Contact) {
     if (contact.id > 0) {
@@ -18,10 +19,31 @@ export class ContactService {
   }
 
   private insert(contact: Contact) {
-    const sql = 'insert into contacts (name, nomePreferido, cpf, dataNascimento, telefone, email, estahGravida, dataUltimaMenstruacao, telefoneEmergencia, aceite) values (?,?,?,?,?,?,?,?,?,?)';
-    const data = [contact.name, contact.nomePreferido, contact.cpf, contact.dataNascimento, contact.telefone, contact.email, contact.estahGravida, contact.dataUltimaMenstruacao, contact.telefoneEmergencia, contact.aceite];
+    //const sql = 'insert into contacts (name, nomePreferido, cpf, dataNascimento, telefone, email, estahGravida, dataUltimaMenstruacao, telefoneEmergencia, aceite) values (?,?,?,?,?,?,?,?,?,?)';
+    //const data = [contact.name, contact.nomePreferido, contact.cpf, contact.dataNascimento, contact.telefone, contact.email, contact.estahGravida, contact.dataUltimaMenstruacao, contact.telefoneEmergencia, contact.aceite];
 
-    return this.db.executeSQL(sql, data);
+    //return this.db.executeSQL(sql, data);
+
+    var dataToSend = {
+      nome: contact.name, 
+      nomePreferido: contact.nomePreferido, 
+      cpf: contact.cpf, 
+      dataNascimento: contact.dataNascimento.split('T')[0], 
+      telefone: contact.telefone, 
+      email: contact.email, 
+      estahGravida: contact.estahGravida, 
+      dataUltimaMenstruacao: contact.dataUltimaMenstruacao.split('T')[0], 
+      telefoneEmergencia: contact.telefoneEmergencia, 
+      aceite: contact.aceite
+    };
+    var url = "http://localhost:3300/insertcontacts/";
+    this.http.post(url,{data:JSON.stringify(dataToSend)},{headers:new HttpHeaders(
+      {"content-Type":"application/json"}
+    )}).subscribe(
+      (data)=>{
+        //alert(data);
+      }
+    )
   }
 
   private update(contact: Contact) {

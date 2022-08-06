@@ -12,10 +12,12 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
+import {HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     SQLite,
     SQLitePorter,
