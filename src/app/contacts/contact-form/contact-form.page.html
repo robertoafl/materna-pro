@@ -13,7 +13,7 @@
     <ion-list>
       <ion-item>
         <ion-label position="stacked" color="dark">Nome:</ion-label>
-        <ion-input autocapitalize="on" [(ngModel)]="contact.name" name="app_form_cad_name"></ion-input>
+        <ion-input autocapitalize="on" [(ngModel)]="contact.nome" name="app_form_cad_name"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked" color="dark">CPF:</ion-label>
@@ -37,6 +37,14 @@
         <ion-input autocapitalize="on" [(ngModel)]="contact.email" name="app_form_cad_email"></ion-input>
       </ion-item>
       <ion-item>
+        <ion-label position="stacked" color="dark">Qual é a data da sua última menstruação (DUM): </ion-label>
+        <ion-datetime value={{pregnancyAverageDate}} [(ngModel)]="contact.dataUltimaMenstruacao"
+          name="app_form_cad_dataUltimaMenstruacao" min={{pregnancyMinDate}} max={{maxDate}}
+          displayFormat="DDD, DD de MMM de YYYY" dayShortNames="Dom, Seg, Ter, Qua, Qui, Sex, Sab"
+          monthShortNames="jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez"
+          (ionChange)="atribuiTrimestres($event);" cancelText="Cancelar" doneText="Confirmar"></ion-datetime>
+      </ion-item>
+      <ion-item>
         <ion-label position="stacked" color="dark">Você está grávida?</ion-label>
         <ion-select name="model" [(ngModel)]="contact.estahGravida" name="app_form_cad_estahGravida"
           cancelText="Cancelar" okText="Confirmar">
@@ -44,14 +52,6 @@
           <ion-select-option value="2">2º Trimestre</ion-select-option>
           <ion-select-option value="3">3º Trimestre</ion-select-option>
         </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked" color="dark">Qual é a data da sua última menstruação (DUM): </ion-label>
-        <ion-datetime value={{pregnancyAverageDate}} [(ngModel)]="contact.dataUltimaMenstruacao"
-          name="app_form_cad_dataUltimaMenstruacao" min={{pregnancyMinDate}} max={{maxDate}}
-          displayFormat="DDD, DD de MMM de YYYY" dayShortNames="Dom, Seg, Ter, Qua, Qui, Sex, Sab"
-          monthShortNames="jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez"
-          (ionChange)="atribuiTrimestres($event);" cancelText="Cancelar" doneText="Confirmar"></ion-datetime>
       </ion-item>
       <ion-item>
         <ion-label position="stacked" color="dark">Em situação de emergência, ligar para:</ion-label>

@@ -18,15 +18,15 @@ export class ConsultaService {
   }
 
   private insert(consulta: Consulta) {
-    const sql = 'insert into consultas (name, dataConsulta, avaliacao) values (?,?,?)';
-    const data = [consulta.name, consulta.dataConsulta, consulta.avaliacao];
+    const sql = 'insert into consultas (nome, dataConsulta, avaliacao) values (?,?,?)';
+    const data = [consulta.nome, consulta.dataConsulta, consulta.avaliacao];
 
     return this.db.executeSQL(sql, data);
   }
 
   private update(consulta: Consulta) {
-    const sql = 'update consultas set name = ?, dataConsulta = ?, avaliacao = ? where id = ?';
-    const data = [consulta.name, consulta.dataConsulta, consulta.avaliacao, consulta.id];
+    const sql = 'update consultas set nome = ?, dataConsulta = ?, avaliacao = ? where id = ?';
+    const data = [consulta.nome, consulta.dataConsulta, consulta.avaliacao, consulta.id];
 
     return this.db.executeSQL(sql, data);
   }
@@ -47,7 +47,7 @@ export class ConsultaService {
     if (rows && rows.length > 0) {
       const item = rows.item(0);
       consulta.id = item.id;
-      consulta.name = item.name;
+      consulta.nome = item.nome;
       consulta.dataConsulta = item.dataConsulta;
       consulta.avaliacao = item.avaliacao;
     }
@@ -55,14 +55,14 @@ export class ConsultaService {
   }
 
   async getAll() {
-    const sql = 'select * from consultas order by name';
+    const sql = 'select * from consultas order by nome';
     const result = await this.db.executeSQL(sql);
     const consultas = this.fillConsultas(result.rows);
     return consultas;
   }
 
   async filter(text: string) {
-    const sql = 'select * from consultas where name like ? order by name';
+    const sql = 'select * from consultas where nome like ? order by nome';
     const data = [`%${text}%`];
     const result = await this.db.executeSQL(sql, data);
     const consultas = this.fillConsultas(result.rows);
@@ -76,7 +76,7 @@ export class ConsultaService {
       const item = rows.item(i);
       const consulta = new Consulta();
       consulta.id = item.id;
-      consulta.name = item.name;
+      consulta.nome = item.nome;
       consulta.dataConsulta = item.dataConsulta;
       consulta.avaliacao = item.avaliacao;
       consultas.push(consulta);

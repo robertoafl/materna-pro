@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ELocalNotificationTriggerUnit, LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { AlertController, IonRouterOutlet, Platform } from '@ionic/angular';
+import { DatabaseService } from '../core/service/database.service';
 
 @Component({
   selector: 'app-folder',
@@ -17,7 +18,8 @@ export class FolderPage implements OnInit {
     private activatedRoute: ActivatedRoute,
     private platform: Platform,
     private localNotifications: LocalNotifications,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private db: DatabaseService
   ) {
     this.platform.ready().then(() => {
       this.localNotifications.on('click').subscribe(res => {
@@ -36,6 +38,10 @@ export class FolderPage implements OnInit {
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
+  }
+
+  destroyDatabase(){
+    this.db.destroyDatabase();
   }
 
   scheduleNotification() {

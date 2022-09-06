@@ -41,7 +41,7 @@ export class ConsultaListPage implements OnInit {
     async delete(consulta: Consulta) {
       const alert = await this.alertCtrl.create({
         header: 'Deletar?',
-        message: `Deseja excluir a consulta: ${consulta.name}?`,
+        message: `Deseja excluir a consulta: ${consulta.nome}?`,
         buttons: [
           {
             text: 'Cancelar',

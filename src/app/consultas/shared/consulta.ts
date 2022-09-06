@@ -1,6 +1,6 @@
 export class Consulta {
     id: number;
-    name: string;
+    nome: string;
     dataConsulta: string;
     avaliacao: string;
 }

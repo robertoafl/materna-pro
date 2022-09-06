@@ -41,7 +41,7 @@ export class ContactListPage implements OnInit {
   async delete(contact: Contact) {
     const alert = await this.alertCtrl.create({
       header: 'Deletar?',
-      message: `Deseja excluir o contato: ${contact.name}?`,
+      message: `Deseja excluir o contato: ${contact.nome}?`,
       buttons: [
         {
           text: 'Cancelar',

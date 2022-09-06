@@ -18,15 +18,15 @@ export class ContactService {
   }
 
   private insert(contact: Contact) {
-    const sql = 'insert into contacts (name, nomePreferido, cpf, dataNascimento, telefone, email, estahGravida, dataUltimaMenstruacao, telefoneEmergencia, aceite) values (?,?,?,?,?,?,?,?,?,?)';
-    const data = [contact.name, contact.nomePreferido, contact.cpf, contact.dataNascimento, contact.telefone, contact.email, contact.estahGravida, contact.dataUltimaMenstruacao, contact.telefoneEmergencia, contact.aceite];
+    const sql = 'insert into contacts (nome, nomePreferido, cpf, dataNascimento, telefone, email, estahGravida, dataUltimaMenstruacao, telefoneEmergencia, aceite) values (?,?,?,?,?,?,?,?,?,?)';
+    const data = [contact.nome, contact.nomePreferido, contact.cpf, contact.dataNascimento, contact.telefone, contact.email, contact.estahGravida, contact.dataUltimaMenstruacao, contact.telefoneEmergencia, contact.aceite];
 
     return this.db.executeSQL(sql, data);
   }
 
   private update(contact: Contact) {
-    const sql = 'update contacts set name = ?, nomePreferido = ?, cpf = ?, dataNascimento = ?, telefone = ?, email = ?, estahGravida = ?, dataUltimaMenstruacao = ?, telefoneEmergencia = ?, aceite = ? where id = ?';
-    const data = [contact.name, contact.nomePreferido, contact.cpf, contact.dataNascimento, contact.telefone, contact.email, contact.estahGravida, contact.dataUltimaMenstruacao, contact.telefoneEmergencia, contact.aceite, contact.id];
+    const sql = 'update contacts set nome = ?, nomePreferido = ?, cpf = ?, dataNascimento = ?, telefone = ?, email = ?, estahGravida = ?, dataUltimaMenstruacao = ?, telefoneEmergencia = ?, aceite = ? where id = ?';
+    const data = [contact.nome, contact.nomePreferido, contact.cpf, contact.dataNascimento, contact.telefone, contact.email, contact.estahGravida, contact.dataUltimaMenstruacao, contact.telefoneEmergencia, contact.aceite, contact.id];
 
     return this.db.executeSQL(sql, data);
   }
@@ -47,7 +47,7 @@ export class ContactService {
     if (rows && rows.length > 0) {
       const item = rows.item(0);
       contact.id = item.id;
-      contact.name = item.name;
+      contact.nome = item.nome;
       contact.nomePreferido = item.nomePreferido;
       contact.cpf = item.cpf;
       contact.dataNascimento = item.dataNascimento;
@@ -69,7 +69,7 @@ export class ContactService {
   }
 
   async filter(text: string) {
-    const sql = 'select * from contacts where name like ?';
+    const sql = 'select * from contacts where nome like ?';
     const data = [`%${text}%`];
     const result = await this.db.executeSQL(sql, data);
     const contacts = this.fillContacts(result.rows);
@@ -83,7 +83,7 @@ export class ContactService {
       const item = rows.item(i);
       const contact = new Contact();
       contact.id = item.id;
-      contact.name = item.name;
+      contact.nome = item.nome;
       contact.nomePreferido = item.nomePreferido;
       contact.cpf = item.cpf;
       contact.dataNascimento = item.dataNascimento;

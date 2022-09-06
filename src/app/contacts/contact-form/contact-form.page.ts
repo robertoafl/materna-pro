@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { ToastController, NavController  } from '@ionic/angular';
 import { Contact } from '../shared/contact';
 import { ContactService } from '../shared/contact.service';
 
@@ -32,8 +32,11 @@ export class ContactFormPage implements OnInit {
 
     const idParam = this.route.snapshot.paramMap.get('id');
     if (idParam) {
+      //console.log("----- 1");
       this.title = 'Editar contato';
       await this.loadContact(parseInt(idParam));
+    } else {
+      //console.log("----- 2");
     }
     console.log(this.contact);
   }
@@ -73,6 +76,15 @@ export class ContactFormPage implements OnInit {
     this.contact.terminoPrimeiroTrimestre = new Date(new Date(this.contact.dataUltimaMenstruacao).getTime() + 7884000000);
     this.contact.terminoSegundoTrimestre = new Date(new Date(this.contact.dataUltimaMenstruacao).getTime() + 15768000000);
     this.contact.terminoTerceiroTrimestre = new Date(new Date(this.contact.dataUltimaMenstruacao).getTime() + 23652000000);
+  /*
+    if (new Date().getTime() <= new Date(this.contact.terminoPrimeiroTrimestre).getTime()) {
+      this.contact.estahGravida = "1º Trimestre";
+    } else if (new Date().getTime() <= new Date(this.contact.terminoSegundoTrimestre).getTime()) {
+      this.contact.estahGravida = "2º Trimestre";
+    } else if (new Date().getTime() <= new Date(this.contact.terminoTerceiroTrimestre).getTime()) {
+      this.contact.estahGravida = "3º Trimestre";
+    }
+    */
   }
 
 }

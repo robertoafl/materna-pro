@@ -1,6 +1,6 @@
 export class Contact {
     id: number;
-    name: string;
+    nome: string;
     nomePreferido: string;
     cpf: string;
     dataNascimento: Date;
