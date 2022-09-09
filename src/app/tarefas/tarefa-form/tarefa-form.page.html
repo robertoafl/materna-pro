@@ -18,48 +18,48 @@
     <ion-list>
       <ion-item>
         <ion-label color="dark" class="ion-text-wrap">Tenho náuseas ou vômitos constantes</ion-label>
-        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-checkbox slot="start" [(ngModel)]="tarefa.sintoma1" name="app_form_tarefa_sintoma1"></ion-checkbox>
       </ion-item>
       <ion-item>
         <ion-label color="dark" class="ion-text-wrap">Tenho sangramento nas gengivas</ion-label>
-        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-checkbox slot="start" [(ngModel)]="tarefa.sintoma2" name="app_form_tarefa_sintoma2"></ion-checkbox>
       </ion-item>
       <ion-item>
         <ion-label color="dark" class="ion-text-wrap">Tenho dor de dente</ion-label>
-        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-checkbox slot="start" [(ngModel)]="tarefa.sintoma3" name="app_form_tarefa_sintoma3"></ion-checkbox>
       </ion-item>
       <ion-item>
         <ion-label color="dark" class="ion-text-wrap">Uso aparelho ortodôntico mas não faço as manutenções</ion-label>
-        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-checkbox slot="start" [(ngModel)]="tarefa.sintoma4" name="app_form_tarefa_sintoma4"></ion-checkbox>
       </ion-item>
       <ion-item>
         <ion-label color="dark" class="ion-text-wrap">Realizei a primeira consulta do pré-natal odontológico</ion-label>
-        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-checkbox slot="start" [(ngModel)]="tarefa.sintoma5" name="app_form_tarefa_sintoma5"></ion-checkbox>
       </ion-item>
       <ion-item>
         <ion-label color="dark" class="ion-text-wrap">Uso com frequência fio dental</ion-label>
-        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-checkbox slot="start" [(ngModel)]="tarefa.sintoma6" name="app_form_tarefa_sintoma6"></ion-checkbox>
       </ion-item>
       <ion-item>
         <ion-label color="dark" class="ion-text-wrap">Sempre escovo meus dentes após as refeições</ion-label>
-        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-checkbox slot="start" [(ngModel)]="tarefa.sintoma7" name="app_form_tarefa_sintoma7"></ion-checkbox>
       </ion-item>
       <ion-item>
         <ion-label color="dark" class="ion-text-wrap">Tenho insegurança/medo quando vou ao dentista</ion-label>
-        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-checkbox slot="start" [(ngModel)]="tarefa.sintoma8" name="app_form_tarefa_sintoma8"></ion-checkbox>
       </ion-item>
       <ion-item>
         <ion-label color="dark" class="ion-text-wrap">Acredito que a minha saúde bucal influencia a saúde do meu bebê
         </ion-label>
-        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-checkbox slot="start" [(ngModel)]="tarefa.sintoma9" name="app_form_tarefa_sintoma9"></ion-checkbox>
       </ion-item>
       <ion-item>
         <ion-label color="dark" class="ion-text-wrap">Acredito na importância do aleitamento materno</ion-label>
-        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-checkbox slot="start" [(ngModel)]="tarefa.sintoma10" name="app_form_tarefa_sintoma10"></ion-checkbox>
       </ion-item>
       <ion-item>
         <ion-label position="stacked" color="dark">Anotações</ion-label>
-        <ion-textarea autocapitalize="on" [(ngModel)]="tarefa.anotacoes" name="name" rows="3"
+        <ion-textarea autocapitalize="on" [(ngModel)]="tarefa.anotacoes" name="app_form_tarefa_anotacoes" rows="3"
           placeholder="Escreva aqui outros sinais e sintomas neste período e que você não encontrou na lista acima.">
         </ion-textarea>
       </ion-item>

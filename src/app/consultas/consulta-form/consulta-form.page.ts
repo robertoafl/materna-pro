@@ -52,7 +52,6 @@ export class ConsultaFormPage implements OnInit {
       this.ocultaSegundoTrimestre = true;
       this.ocultaTerceiroTrimestre = false;
     }
-
   }
 
   async loadConsulta(id: number) {
@@ -88,6 +87,14 @@ export class ConsultaFormPage implements OnInit {
 
       toast.present();
     }
+  }
+
+  atribuiNotificacao() {
+
+    console.log('Caso exista notificacao anterior: cancelar');
+    console.log('Lança notificacao para a consulta');
+    console.log('Atribuir id para notificação: dtconsulta');
+
   }
 
 }

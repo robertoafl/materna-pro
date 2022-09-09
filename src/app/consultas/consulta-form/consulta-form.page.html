@@ -22,26 +22,28 @@
     <ion-list>
       <ion-item>
         <ion-label position="stacked" color="dark">Data da consulta:</ion-label>
-        <ion-datetime name="app_form_cad_dataNascimentoPrimeiroTrimestre" [hidden]=ocultaPrimeiroTrimestre
-          displayFormat="DDD, DD de MMM de YYYY" dayShortNames="Dom, Seg, Ter, Qua, Qui, Sex, Sab"
-          monthShortNames="jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez" cancelText="Cancelar" doneText="Confirmar"></ion-datetime>
-        <ion-datetime name="app_form_cad_dataNascimentoSegundoTrimestre" [hidden]=ocultaSegundoTrimestre
-          displayFormat="DDD, DD de MMM de YYYY" dayShortNames="Dom, Seg, Ter, Qua, Qui, Sex, Sab"
-          monthShortNames="jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez" cancelText="Cancelar" doneText="Confirmar"></ion-datetime>
-        <ion-datetime name="app_form_cad_dataNascimentoTerceiroTrimestre" [hidden]=ocultaTerceiroTrimestre
-          displayFormat="DDD, DD de MMM de YYYY" dayShortNames="Dom, Seg, Ter, Qua, Qui, Sex, Sab"
-          monthShortNames="jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez" cancelText="Cancelar" doneText="Confirmar"></ion-datetime>
+        <ion-datetime 
+          name="app_form_cad_dataConsulta"
+          [hidden]=false
+          [(ngModel)]="consulta.dataConsulta"
+          displayFormat="DDD, DD de MMM de YYYY" 
+          dayShortNames="Dom, Seg, Ter, Qua, Qui, Sex, Sab"
+          monthShortNames="jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez" 
+          (ionChange)="atribuiNotificacao($event);"
+          cancelText="Cancelar" 
+          doneText="Confirmar">
+        </ion-datetime>
         <ion-label position="stacked" ion-label color="dark" class="ion-text-wrap">O que o dentista vai avaliar?
         </ion-label>
         <ion-textarea autocapitalize="on" [hidden]=ocultaPrimeiroTrimestre [readonly]="true" rows="2"
           value="Seus hábitos de higiene bucal e alimentação diária."></ion-textarea>
-        <ion-textarea autocapitalize="on" [hidden]=ocultaPrimeiroTrimestre [readonly]="true" rows="1"
+        <ion-textarea autocapitalize="on" [hidden]=ocultaPrimeiroTrimestre [readonly]="true" rows="2"
           value="Avaliação clínica dos dentes e gengiva."></ion-textarea>
-        <ion-textarea autocapitalize="on" [hidden]=ocultaSegundoTrimestre [readonly]="true" rows="1"
-          value="Melhor fase para tratamento odontológico."></ion-textarea>
         <ion-textarea autocapitalize="on" [hidden]=ocultaSegundoTrimestre [readonly]="true" rows="2"
+          value="Melhor fase para tratamento odontológico."></ion-textarea>
+        <ion-textarea autocapitalize="on" [hidden]=ocultaSegundoTrimestre [readonly]="true" rows="3"
           value="Nesta fase você poderá realizar procedimentos mais difíceis, caso haja necessidade."></ion-textarea>
-        <ion-textarea autocapitalize="on" [hidden]=ocultaTerceiroTrimestre [readonly]="true" rows="4"
+        <ion-textarea autocapitalize="on" [hidden]=ocultaTerceiroTrimestre [readonly]="true" rows="5"
           value="Este momento é a hora de receber informações relacionadas a alimentação do bebê (aleitamento materno exclusivo) e correta higiene bucal.">
         </ion-textarea>
       </ion-item>

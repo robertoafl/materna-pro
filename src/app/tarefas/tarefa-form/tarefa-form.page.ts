@@ -54,6 +54,8 @@ export class TarefaFormPage implements OnInit {
       this.ocultaPrimeiroTrimestre = true;
       this.ocultaSegundoTrimestre = true;
       this.ocultaTerceiroTrimestre = false;
+    } else {
+      this.trimestre = "1";
     }
   }
 

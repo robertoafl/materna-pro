@@ -18,15 +18,15 @@ export class ContactService {
   }
 
   private insert(contact: Contact) {
-    const sql = 'insert into contacts (nome, nomePreferido, cpf, dataNascimento, telefone, email, estahGravida, dataUltimaMenstruacao, telefoneEmergencia, aceite) values (?,?,?,?,?,?,?,?,?,?)';
-    const data = [contact.nome, contact.nomePreferido, contact.cpf, contact.dataNascimento, contact.telefone, contact.email, contact.estahGravida, contact.dataUltimaMenstruacao, contact.telefoneEmergencia, contact.aceite];
+    const sql = 'insert into contacts (nome, cpf, dataNascimento, telefone, email, dataUltimaMenstruacao , terminoPrimeiroTrimestre, terminoSegundoTrimestre, terminoTerceiroTrimestre, telefoneEmergencia) values (?,?,?,?,?,?,?,?,?,?)';
+    const data = [contact.nome, contact.cpf, contact.dataNascimento, contact.telefone, contact.email, contact.dataUltimaMenstruacao, contact.terminoPrimeiroTrimestre, contact.terminoSegundoTrimestre, contact.terminoTerceiroTrimestre, contact.telefoneEmergencia];
 
     return this.db.executeSQL(sql, data);
   }
 
   private update(contact: Contact) {
-    const sql = 'update contacts set nome = ?, nomePreferido = ?, cpf = ?, dataNascimento = ?, telefone = ?, email = ?, estahGravida = ?, dataUltimaMenstruacao = ?, telefoneEmergencia = ?, aceite = ? where id = ?';
-    const data = [contact.nome, contact.nomePreferido, contact.cpf, contact.dataNascimento, contact.telefone, contact.email, contact.estahGravida, contact.dataUltimaMenstruacao, contact.telefoneEmergencia, contact.aceite, contact.id];
+    const sql = 'update contacts set nome = ?, cpf = ?, dataNascimento = ?, telefone = ?, email = ?, dataUltimaMenstruacao = ?, terminoPrimeiroTrimestre = ?, terminoSegundoTrimestre = ?, terminoTerceiroTrimestre = ?, telefoneEmergencia = ? where id = ?';
+    const data = [contact.nome, contact.cpf, contact.dataNascimento, contact.telefone, contact.email, contact.dataUltimaMenstruacao, contact.terminoPrimeiroTrimestre, contact.terminoSegundoTrimestre, contact.terminoTerceiroTrimestre, contact.telefoneEmergencia, contact.id];
 
     return this.db.executeSQL(sql, data);
   }
@@ -48,15 +48,15 @@ export class ContactService {
       const item = rows.item(0);
       contact.id = item.id;
       contact.nome = item.nome;
-      contact.nomePreferido = item.nomePreferido;
       contact.cpf = item.cpf;
       contact.dataNascimento = item.dataNascimento;
       contact.telefone = item.telefone;
       contact.email = item.email;
-      contact.estahGravida = item.estahGravida;
       contact.dataUltimaMenstruacao = item.dataUltimaMenstruacao;
+      contact.terminoPrimeiroTrimestre = item.terminoPrimeiroTrimestre;
+      contact.terminoSegundoTrimestre = item.terminoSegundoTrimestre;
+      contact.terminoTerceiroTrimestre = item.terminoTerceiroTrimestre;
       contact.telefoneEmergencia = item.telefoneEmergencia;
-      contact.aceite = item.aceite;
     }
     return contact;
   }
@@ -84,15 +84,15 @@ export class ContactService {
       const contact = new Contact();
       contact.id = item.id;
       contact.nome = item.nome;
-      contact.nomePreferido = item.nomePreferido;
       contact.cpf = item.cpf;
       contact.dataNascimento = item.dataNascimento;
       contact.telefone = item.telefone;
       contact.email = item.email;
-      contact.estahGravida = item.estahGravida;
       contact.dataUltimaMenstruacao = item.dataUltimaMenstruacao;
+      contact.terminoPrimeiroTrimestre = item.terminoPrimeiroTrimestre;
+      contact.terminoSegundoTrimestre = item.terminoSegundoTrimestre;
+      contact.terminoTerceiroTrimestre = item.terminoTerceiroTrimestre;
       contact.telefoneEmergencia = item.telefoneEmergencia;
-      contact.aceite = item.aceite;
       contacts.push(contact);
     }
 

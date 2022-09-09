@@ -42,8 +42,9 @@
           name="app_form_cad_dataUltimaMenstruacao" min={{pregnancyMinDate}} max={{maxDate}}
           displayFormat="DDD, DD de MMM de YYYY" dayShortNames="Dom, Seg, Ter, Qua, Qui, Sex, Sab"
           monthShortNames="jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez"
-          (ionChange)="atribuiTrimestres($event);" cancelText="Cancelar" doneText="Confirmar"></ion-datetime>
+          (ionChange)="informaTempoDeGestacao($event);" cancelText="Cancelar" doneText="Confirmar"></ion-datetime>
       </ion-item>
+      <!--
       <ion-item>
         <ion-label position="stacked" color="dark">Você está grávida?</ion-label>
         <ion-select name="model" [(ngModel)]="contact.estahGravida" name="app_form_cad_estahGravida"
@@ -53,6 +54,7 @@
           <ion-select-option value="3">3º Trimestre</ion-select-option>
         </ion-select>
       </ion-item>
+      -->
       <ion-item>
         <ion-label position="stacked" color="dark">Em situação de emergência, ligar para:</ion-label>
         <ion-input autocapitalize="on" [(ngModel)]="contact.telefoneEmergencia" name="app_form_cad_telefoneEmergencia">

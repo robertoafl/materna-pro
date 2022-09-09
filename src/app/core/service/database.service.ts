@@ -28,9 +28,9 @@ export class DatabaseService {
 
   getCreateTable() {
     const sqls = [];
-    sqls.push('CREATE TABLE IF NOT EXISTS contacts (id integer primary key AUTOINCREMENT, nome varchar(100), nomePreferido varchar(100), cpf varchar(100), dataNascimento varchar(100), telefone varchar(100), email varchar(100), estahGravida varchar(100), dataUltimaMenstruacao varchar(100), telefoneEmergencia varchar(100), aceite varchar(100));');
+    sqls.push('CREATE TABLE IF NOT EXISTS contacts (id integer primary key AUTOINCREMENT, nome varchar(255), cpf varchar(255), dataNascimento date, telefone varchar(255), email varchar(255), dataUltimaMenstruacao date, terminoPrimeiroTrimestre date, terminoSegundoTrimestre date, terminoTerceiroTrimestre date, telefoneEmergencia varchar(255));');
     sqls.push('CREATE TABLE IF NOT EXISTS consultas (id integer primary key AUTOINCREMENT, nome varchar(100), dataConsulta varchar(100), avaliacao varchar(100));');
-    sqls.push('CREATE TABLE IF NOT EXISTS tarefas (id integer primary key AUTOINCREMENT, anotacoes varchar(100));');
+    sqls.push('CREATE TABLE IF NOT EXISTS tarefas (id integer primary key AUTOINCREMENT, anotacoes varchar(100), sintoma1 booblean, sintoma2 booblean, sintoma3 booblean, sintoma4 booblean, sintoma5 booblean, sintoma6 booblean, sintoma7 booblean, sintoma8 booblean, sintoma9 booblean, sintoma10 booblean);');
     return sqls.join('\n');
   }
 
