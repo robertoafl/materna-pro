@@ -22,17 +22,19 @@
     <ion-list>
       <ion-item>
         <ion-label position="stacked" color="dark">Data da consulta:</ion-label>
-        <ion-datetime 
+        <ion-datetime
+          min={{minDate}}
+          max={{maxDate}}
           name="app_form_cad_dataConsulta"
           [hidden]=false
           [(ngModel)]="consulta.dataConsulta"
           displayFormat="DDD, DD de MMM de YYYY" 
           dayShortNames="Dom, Seg, Ter, Qua, Qui, Sex, Sab"
           monthShortNames="jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez" 
-          (ionChange)="atribuiNotificacao($event);"
           cancelText="Cancelar" 
           doneText="Confirmar">
         </ion-datetime>
+        <!-- (ionChange)="atribuiNotificacao($event);" -->
         <ion-label position="stacked" ion-label color="dark" class="ion-text-wrap">O que o dentista vai avaliar?
         </ion-label>
         <ion-textarea autocapitalize="on" [hidden]=ocultaPrimeiroTrimestre [readonly]="true" rows="2"

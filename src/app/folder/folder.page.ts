@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ELocalNotificationTriggerUnit, LocalNotifications } from '@ionic-native/local-notifications/ngx';
+// import { ELocalNotificationTriggerUnit } from '@ionic-native/local-notifications/ngx';
+// import { LocalNotifications } from '@awesome-cordova-plugins/local-notifications/ngx';
 import { AlertController, IonRouterOutlet, Platform } from '@ionic/angular';
 import { DatabaseService } from '../core/service/database.service';
 
@@ -43,24 +45,41 @@ export class FolderPage implements OnInit {
   destroyDatabase(){
     this.db.destroyDatabase();
   }
+  // create a one mit notification
+  createOneMinNotification() {
+    console.log('3 secs');
+    this.localNotifications.schedule({
+      id: 111,
+      text: 'Delayed ILocalNotification',
+      trigger: {at: new Date(new Date().getTime() + 3000)},
+      led: 'FF0000',
+      sound: null
+   });
+  }
+
+  async cancelOneMinNotification() {
+    // this.localNotifications.cancel(111);
+    const notifications = await this.localNotifications.getIds();
+    console.log('notifications: ', notifications);
+  };
 
   scheduleNotification() {
-    this.localNotifications.schedule({
-      id: 1,
-      title: 'Attention',
-      text: 'Simons Notification',
-      data: { mydata: 'My hidden message this is' },
-      trigger: { in: 5, unit: ELocalNotificationTriggerUnit.SECOND },
-      // foreground: true
-    });
+    // this.localNotifications.schedule({
+    //   id: 1,
+    //   title: 'Attention',
+    //   text: 'Simons Notification',
+    //   data: { mydata: 'My hidden message this is' },
+    //   trigger: { in: 5, unit: ELocalNotificationTriggerUnit.SECOND },
+    //   // foreground: true
+    // });
 
-    //this.localNotifications.schedule({
-    //  id: 1,
-    //  title: 'Attention',
-    //  text: 'Simons Notification',
-    //  data: { page: 'My hidden message this is'},
-    //  trigger: { at: new Date(new Date().getTime() + 5 * 1000)}
-    //});
+    this.localNotifications.schedule({
+     id: 1,
+     title: 'Attention',
+     text: 'Simons Notification',
+     data: { page: 'My hidden message this is'},
+     trigger: { at: new Date(new Date().getTime() + 5 * 1000)}
+    });
   }
 
   recurringNotification() {

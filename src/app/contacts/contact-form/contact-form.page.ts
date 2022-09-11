@@ -47,6 +47,8 @@ export class ContactFormPage implements OnInit {
 
   async onSubmit() {
     try {
+      console.log('onSubmit');
+      
       this.atribuiTrimestres();
       this.atribuiNotificacoes();
       const result = await this.contactService.save(this.contact);
@@ -112,6 +114,7 @@ export class ContactFormPage implements OnInit {
     //O lançamento das notificações serão de acordo com as 42 semanas de gestação
     //mas se a gestante se cadastrou já em semana avançada, deve se...
     //a data da semana X dela é anterior (ou igual) a data atual, se for, não lança a notificação
+    console.log('Atribuir notificações');
     for (var i = 1; i <= 42; i++) {
       switch (i.toString()) {
         case '1': //1ª semana de gestação e 1ª semana do 1º trimestre
