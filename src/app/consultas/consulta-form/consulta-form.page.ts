@@ -79,11 +79,13 @@ export class ConsultaFormPage implements OnInit {
     if (value) {
       data.setHours(7, 0, 0, 0);
       this.localNotifications.schedule({
-        id: 111,
+        id: 112,
         text: 'Bom dia, não se esqueça da sua consulta!',
         trigger: {at: data},
+        // trigger: {at: new Date(new Date().getTime() + 5000)},
         led: 'FF0000',
-        sound: null
+        smallIcon: 'res://assets/res/drawable-xxxhdpi/app_icon.png',
+        icon: 'file://assets/icon/materna_pro_icon.png',
       });
       // console.log('Caso exista notificacao anterior: cancelar');
       // console.log('Lança notificacao para a consulta');
