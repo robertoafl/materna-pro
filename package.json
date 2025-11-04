@@ -1,8 +1,8 @@
 {
   "name": "materna-pro",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "teleodonto.uerj.br",
+  "homepage": "http://www.teleodonto.uerj.br/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -24,7 +24,6 @@
     "@ionic-native/sqlite": "^5.32.1",
     "@ionic-native/sqlite-porter": "^5.32.1",
     "@ionic/angular": "^5.5.2",
-    "cordova-android": "9.1.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
@@ -45,6 +44,7 @@
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "4.16.1",
     "@typescript-eslint/parser": "4.16.1",
+    "cordova-android": "^9.1.0",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^4.2.1",
